@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 function TodoForm(props) {
   const [input, setInput] = useState("");
+
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+      inputRef.current.focus()
+  })
 
   const handleChange = e => {
       setInput(e.target.value);
@@ -9,10 +15,9 @@ function TodoForm(props) {
 
   const handleSubmit = e => {
       e.preventDefault();
-    
-      props.onSubmit({
+              props.onSubmit({
           id: Math.floor(Math.random() * 10000),
-          text: {input},
+          text: input,
       });
 
       setInput(''); // resets to empty string
@@ -27,6 +32,7 @@ function TodoForm(props) {
         name="text"
         className="border border-blue-500 p-2"
         onChange={handleChange}
+        ref={inputRef}
       />
       <button className="bg-blue-500 text-blue-50 rounded-lg px-4 py-2 hover:bg-blue-600">Add todo</button>
     </form>
