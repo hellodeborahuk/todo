@@ -5,8 +5,8 @@ function App() {
 
 
   return (
-    <div className="container mx-auto">
-      <TodoList /> 
+    <div className="container mx-auto w-9/12 flex justify-center justify-items-center">
+      <TodoList />
     </div>
   );
 }

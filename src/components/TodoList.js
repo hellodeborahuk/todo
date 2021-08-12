@@ -43,7 +43,14 @@ function TodoList() {
 
   return (
     <div>
-      <h1 className="text-2xl">What's the plan for today?</h1>
+      <h1
+        className="text-5xl font-bold text-transparent
+                bg-clip-text bg-gradient-to-r
+                from-purple-500
+                to-purple-800 my-8"
+      >
+        What's the plan for today?
+      </h1>
       <TodoForm onSubmit={addTodo} />
       <Todo
         todos={todos}
